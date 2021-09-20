@@ -1,4 +1,5 @@
-﻿function getData(){
+﻿//Function to get data based on teh search
+function getData(){
     var form = document.getElementById("frmSearch");
     let formData = new FormData(form);
 
@@ -15,6 +16,7 @@
     });    
 }
 
+//Function to udpate the chart with the results
 function updateChart(values){
     var rowBars = document.getElementById("row-bars");
     var legendUl = document.getElementById("legend");
@@ -22,6 +24,7 @@ function updateChart(values){
     while (rowBars.firstChild) {
         rowBars.removeChild(rowBars.lastChild);
     }
+    //Delete existing legends before adding new ones
     while (legendUl.firstChild) {
         legendUl.removeChild(legendUl.lastChild);
     }
@@ -30,21 +33,20 @@ function updateChart(values){
         var totalOrders = values.totalOrders;
         //Add bar for each client
         values.clientOrders.forEach(element => {
+            //Create the bars
             var percent = (element.numberOfOrders / totalOrders) * 100;
             var rBar = document.createElement("div");            
-            // rBar.innerHTML(element.ClientName);
-             var text = document.createTextNode(element.clientName);
-            //rBar.appendChild(text);
+            var text = document.createTextNode(element.clientName);
             rBar.className = "rbars"
             rBar.style.cssText = "width: " + percent + "%";
             rowBars.appendChild(rBar);
 
+            //Create the legend
             var legendLi = document.createElement("li");
             legendLi.className = "Legend-item";
 
             var legendColorBox = document.createElement("span");
             legendColorBox.className = "Legend-colorBox";
-            //legendColorBox.style.cssText = "background-color: green";
             legendLi.appendChild(legendColorBox);
 
             var legendTextBox = document.createElement("span");

@@ -34,10 +34,12 @@ namespace Barcharts.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        //Method to retieve the clietn order data based on the search parameters
         [HttpPost]
         public async Task<IActionResult> GetData([FromBody] SearchModel searchData)
         {
             int totalOrders = 0;
+            //If parameters are null, then set default values.
             var startMonth = searchData != null && searchData.StartDate.HasValue ? searchData.StartDate.Value.Month : 1;
             var endMonth = searchData != null && searchData.EndDate.HasValue ? searchData.EndDate.Value.Month : 6;
 
@@ -51,7 +53,7 @@ namespace Barcharts.Controllers
             List<ClientOrderModel> lClientOrders = await clientOrders.ToListAsync();
             ResultModel result = new ResultModel();
             result.ClientOrders = lClientOrders;
-            
+            //Calcualte the total orders
             foreach(ClientOrderModel order in result.ClientOrders)
             {
                 totalOrders += order.NumberOfOrders;
