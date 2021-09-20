@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Client Orders";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Client Orders</h1>
+    <br />
+    <div>
+    <form name="frmSearch" id="frmSearch" onsubmit="event.preventDefault(); getData();" >
+        <label>Enter Order Start Date</label>
+        <input type="datetime-local" min="2021-01-01T00:00:00" max="2021-06-30T12:00:00" name="startDate" id="startDate"/>
+        <br />
+        <label>Enter Order End Date</label>
+        <input type="datetime-local" min="2021-01-01T00:00:00" max="2021-06-30T12:00:00" name="endDate" id="endDate"/>
+        <br />
+        <input type="submit" name="submit" value="Search"/>
+    </form>
+    </div>
+    <section class="section-container">
+      <div class="title">Bar Chart</div> 
+
+      <section class="chart">
+        <section class="column-bars">
+          <div class="cbars"></div>
+          <div class="cbars"></div>
+          <div class="cbars"></div>
+          <div class="cbars"></div>
+          <div class="cbars"></div>
+          <div class="cbars"></div>
+          <div class="cbars"></div>
+          <div class="cbars"></div>
+          <div class="cbars"></div>
+          <div class="cbars"></div>
+        </section>
+
+        <section class="row-bars" id="row-bars">
+          
+        </section>
+      </section>
+    </section> 
+    <section class="section-container">
+      <div class="title">Legend</div>
+      <section class="chart-legend">
+      <ul class="Legend" id="legend">
+        
+      </ul>
+      </section>
+    </section> 
+</div>
