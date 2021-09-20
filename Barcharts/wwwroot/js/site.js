@@ -52,23 +52,7 @@ function updateChart(values){
             legendLi.appendChild(legendTextBox);
 
             legendUl.appendChild(legendLi);
-            
-    //         <ul class="Legend" id="legend">
-    //     <li class="Legend-item">
-    //       <span class="Legend-colorBox" style="background-color: green;">
-    //       </span>
-    //       <span class="Legend-label">
-    //         Item One
-    //       </span>
-    //     </li>
-    //     <li class="Legend-item">
-    //       <span class="Legend-colorBox" style="background-color: blue;">
-    //       </span>
-    //       <span class="Legend-label">
-    //         Item One
-    //       </span>
-    //     </li>
-    //   </ul>
+    
         });
     }
 }
